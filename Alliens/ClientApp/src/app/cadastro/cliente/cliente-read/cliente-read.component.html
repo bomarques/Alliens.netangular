@@ -1,0 +1,30 @@
+<h1 id="tableLabel">Clientes</h1>
+
+<button class="btn btn-primary" (click)=create()>Cadastrar</button>
+<p>Lista de Clientes</p>
+
+<p *ngIf="!clientes"><em>Carregando...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="clientes">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Código</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.endereco }}</td>
+            <td>{{ cliente.codigo }}</td>
+            <td><button class="btn btn-warning" (click)="edit(cliente)">Editar</button></td>
+            <td><button class="btn btn-danger" (click)="delete(cliente)" >Excluir</button></td>
+        </tr>
+    </tbody>
+</table>
+

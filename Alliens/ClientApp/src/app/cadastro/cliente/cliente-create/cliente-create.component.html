@@ -1,0 +1,15 @@
+<form [formGroup]="form" (ngSubmit)="create()">
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+  </div>
+  <div class="form-group">
+    <label for="endereço">Endereço</label>
+    <input type="text" class="form-control" formControlName="endereço" placeholder="Endereço">
+  </div>
+  <div class="form-group">
+    <label for="codigo">Código</label>
+    <input type="text" class="form-control" formControlName="codigo" placeholder="Código">
+  </div>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>

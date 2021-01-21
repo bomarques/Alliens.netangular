@@ -1,0 +1,27 @@
+<h1 id="tableLabel">Produtos</h1>
+
+<button class="btn btn-primary" (click)=create()>Cadastrar</button>
+<p>Lista de Produtos</p>
+
+<p *ngIf="!produtos"><em>Carregando...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="produtos">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Código</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let produto of produtos">
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.descricao }}</td>
+            <td>{{ produto.codigo }}</td>
+            <td><button class="btn btn-warning" (click)="edit(produto)">Editar</button></td>
+            <td><button class="btn btn-danger" (click)="delete(produto)" >Excluir</button></td>
+        </tr>
+    </tbody>
+</table>

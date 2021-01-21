@@ -1,0 +1,46 @@
+USE MASTER
+ 
+DROP DATABASE IF EXISTS Aliens;
+ 
+CREATE DATABASE Aliens;
+ 
+USE Aliens;
+ 
+CREATE TABLE PRODUTO
+(
+    ID INT IDENTITY NOT NULL PRIMARY KEY,
+    descricao VARCHAR(200),
+    codigo VARCHAR(15)
+);
+CREATE TABLE CLIENTE
+(
+    ID INT IDENTITY NOT NULL PRIMARY KEY,
+    nome VARCHAR(200),
+	endereço VARCHAR(200),
+    codigo VARCHAR(15)
+);
+ 
+GO
+ 
+INSERT INTO PRODUTO
+VALUES
+    ('CoronaVac', 'HMXU');
+ 
+INSERT INTO PRODUTO
+VALUES
+    ('Cloroquina', 'IDKH');
+
+	INSERT INTO CLIENTE
+VALUES
+    ('Bruno', 'Rua Canada', '22');
+ 
+INSERT INTO CLIENTE
+VALUES
+    ('Igor', 'Rua do Buraco','24');
+ 
+SELECT *
+FROM PRODUTO
+
+SELECT *
+FROM CLIENTE
+ 
