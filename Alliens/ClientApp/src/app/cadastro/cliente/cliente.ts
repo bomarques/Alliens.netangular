@@ -1,7 +1,7 @@
 export interface Cliente {
   id?: number;
-  Nome: String;
-  Endereço: String;
+  nome: String;
+  endereco: String;
   codigo: String;
 }
 

@@ -13,20 +13,55 @@ export class ClienteReadComponent implements OnInit {
 
   clientes: Cliente[];
 
+  // Injeta o serviçe e o router no construtor
   constructor(private clienteService: ClienteService, private router: Router) { }
 
   ngOnInit() {
-
-    this.clienteService.get().subscribe(result => {
-      this.clientes = result;
-    })
-
+    // Ao iniciar o componente, realiza a busca
+    this.get();
   }
 
-  create(){this.router.navigateByUrl("cliente/cadastro")}
+  get() {
 
-  edit(produto: any){alert('Em construção')}
+    // Se inscreve no serviço e aguarda o retorno
+    this.clienteService.get().subscribe(result => {
 
-  delete(produto:any){alert('Em construção')}
+      // Preenche a lista de produtos com o retorno
+      this.clientes = result;
+    })
+  }
+
+  create() {
+
+    // Redireciona para o componente de cadastro
+    this.router.navigateByUrl("cliente/cadastro")
+  }
+
+  edit(cliente: any) {
+
+    // Redireciona para o componente de cadastra, enviando o ID do produto na rota
+    this.router.navigate(["cliente/cadastro", cliente.id])
+  }
+
+  delete(cliente: any) {
+
+    // Solicita confirmação
+    var confirm = window.confirm('Tem certeza?');
+
+    if (confirm) {
+
+      // Solicita ao serviço e aguarda o retorno
+      this.clienteService.delete(cliente.id).subscribe(result => {
+
+        // Avisa o usuário
+        if (result != null)
+          alert('Cliente excluído com sucesso!');
+
+        // Recarrega a lista
+        this.get();
+
+      })
+    }
+  }
 
 }

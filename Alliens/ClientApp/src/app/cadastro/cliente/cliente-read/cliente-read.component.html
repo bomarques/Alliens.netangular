@@ -1,10 +1,14 @@
-<h1 id="tableLabel">Clientes</h1>
-
-<button class="btn btn-primary" (click)=create()>Cadastrar</button>
-<p>Lista de Clientes</p>
-
 <p *ngIf="!clientes"><em>Carregando...</em></p>
 
+<div class="table-title">
+  <div class="row">
+      <div class="col-sm-12">
+          <h2 class="float-left">Clientes</h2>
+          <button class="btn btn-primary float-right" (click)=create()>Cadastrar</button>
+      </div>
+  </div>
+</div>
+<div class="table-responsive">
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="clientes">
     <thead>
         <tr>
@@ -27,4 +31,5 @@
         </tr>
     </tbody>
 </table>
+</div>
 

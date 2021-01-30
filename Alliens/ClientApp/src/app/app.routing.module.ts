@@ -14,8 +14,10 @@ const routes: Routes = [
     { path: 'counter', component: CounterComponent },
     { path: 'fetch-data', component: FetchDataComponent },
     { path: 'produto/cadastro', component: ProdutoCreateComponent },
+    { path: 'produto/cadastro/:id', component: ProdutoCreateComponent },
     { path: 'produtos', component: ProdutoReadComponent },
     { path: 'cliente/cadastro', component: ClienteCreateComponent },
+    { path: 'cliente/cadastro/:id', component: ClienteCreateComponent },
     { path: 'clientes', component: ClienteReadComponent }
 
 ];

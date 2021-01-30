@@ -1,15 +1,22 @@
-<form [formGroup]="form" (ngSubmit)="create()">
+<h2> Cadastro de Clientes</h2>
+<hr>
+
+<!-- Aqui incluímos uma condição (ternária) no submit: Se o objeto cliente não for nulo, é uma edição, do contrário, é uma criação-->
+<form [formGroup]="form" (ngSubmit)="this.cliente ? this.edit() : this.create();">
   <div class="form-group">
-    <label for="nome">Nome</label>
+    <label for="descricao">Nome</label>
     <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
   </div>
   <div class="form-group">
-    <label for="endereço">Endereço</label>
-    <input type="text" class="form-control" formControlName="endereço" placeholder="Endereço">
+    <label for="descricao">Endereço</label>
+    <input type="text" class="form-control" formControlName="endereco" placeholder="Endereço">
   </div>
   <div class="form-group">
     <label for="codigo">Código</label>
     <input type="text" class="form-control" formControlName="codigo" placeholder="Código">
   </div>
-  <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+  <!-- Nos botões incluímos a mesma condição do submit, o botão editar só será exibido se o cliente não for nulo, e vice versa-->
+  <button *ngIf="this.cliente" type="submit" class="btn btn-warning">Editar</button>
+  <button *ngIf="!this.cliente" type="submit" class="btn btn-success">Cadastrar</button>
 </form>
